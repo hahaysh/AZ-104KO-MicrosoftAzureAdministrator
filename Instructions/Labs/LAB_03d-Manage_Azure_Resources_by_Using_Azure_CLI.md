@@ -19,6 +19,8 @@ Azure Portal, Azure Resource Manager 템플릿 및 Azure PowerShell을 사용하
 + 작업 2: Azure CLI를 사용하여 리소스 그룹 및 Azure 관리 디스크 만들기
 + 작업 3: Azure CLI 를 사용하여 관리 디스크 구성
 
+## 예상 시간: 20분
+
 ## 지침
 
 ### 연습 1

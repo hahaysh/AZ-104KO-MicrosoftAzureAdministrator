@@ -19,6 +19,8 @@ Azure Portal 및 Azure Resource Manager 템플릿을 사용한 리소스 그룹�
 + 작업 2: Azure PowerShell을 사용하여 리소스 그룹 및 Azure 관리 디스크 만들기
 + 작업 3: Azure PowerShell을 사용하여 관리 디스크 구성
 
+## 예상 시간: 20분
+
 ## 지침
 
 ### 연습 1
@@ -92,6 +94,12 @@ Azure Portal 및 Azure Resource Manager 템플릿을 사용한 리소스 그룹�
 
    ```pwsh
    Get-AzDisk -ResourceGroupName $rgName -Name $diskName
+   ```
+
+1. 현재 SKU를 **Standard_LRS**로 확인하려면 다음을 실행합니다.
+
+   ```pwsh
+   (Get-AzDisk -ResourceGroupName $rgName -Name $diskName).Sku
    ```
 
 1. Cloud Shell 내의 PowerShell 세션에서 디스크 성능 SKU를 **Premium_LRS** 로 변경하려면 다음 명령을 실행합니다.

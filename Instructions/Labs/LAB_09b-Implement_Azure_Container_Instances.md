@@ -18,6 +18,8 @@ Contoso는 가상화된 워크로드를 위한 새로운 플랫폼을 찾고자 
 + 작업 1: Azure Container Instances를 사용하여 Docker 이미지 배포
 + 작업 2: Azure Container Instance의 기능 검토
 
+## 예상 시간: 20분
+
 ## 지침
 
 ### 연습 1

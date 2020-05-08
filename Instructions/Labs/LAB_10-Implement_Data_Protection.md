@@ -23,6 +23,8 @@ Azure Recovery Services를 사용하여 Azure 가상 머신 및 온-프레미스
 + 작업 6: Azure 가상 머신 스냅샷을 사용하여 파일 복구 수행(선택 사항)
 + 작업 7: Azure Recovery Services 일시 삭제 기능 검토(선택 사항)
 
+## 예상 시간: 50분
+
 ## 지침
 
 ### 연습 1
@@ -269,7 +271,7 @@ Azure Recovery Services를 사용하여 Azure 가상 머신 및 온-프레미스
    robocopy [recovery_volume]:\Windows\System32\drivers\etc C:\Windows\system32\drivers\etc hosts /r:1 /w:1
    ```
 
-1. **데이터 복구 마법사**로 다시 전환한 다음 **파일 찾아보기 및 복구에**서 **분리**를 클릭한 다음 확인하라는 메시지가 표시되면 **예**를 클릭합니다. 
+1. **데이터 복구 마법사**로 돌아가 **파일 찾아보기 및 복구**에서 **분리**를 클릭하고 확인 창이 나타나면 **예**를 클릭합니다.  
 
 1. 원격 데스크톱 세션을 종료합니다.
 
@@ -419,7 +421,6 @@ Azure Recovery Services를 사용하여 Azure 가상 머신 및 온-프레미스
     | 이유 | **기타** |
     | 설명 | **az104 10 lab** |
 
-
 #### 리소스 정리
 
    >**참고**: 더 이상 사용하지 않는 새로 만든 Azure 리소스를 제거해야 합니다. 사용하지 않는 리소스를 제거하면 해당 비용이 발생하지 않습니다.
@@ -438,7 +439,9 @@ Azure Recovery Services를 사용하여 Azure 가상 머신 및 온-프레미스
    Get-AzResourceGroup -Name 'az104-10*' | Remove-AzResourceGroup -Force -AsJob
    ```
 
-    >**참고**: 명령은 비동기적으로 실행(-AsJob 매개 변수에 의해 결정)되므로 동일한 PowerShell 세션 내에서 즉시 다른 PowerShell 명령을 실행할 수 있지만 리소스 그룹이 실제로 제거되기까지 몇 분 정도 걸릴 수 있습니다.
+   >**참고**: 원하는 경우 접두사 **AzureBackupRG_**가 붙은 자동 생성된 리소스 그룹을 삭제할 수도 있습니다(해당 리소스 그룹과 관련한 추가 비용은 발생하지 않습니다).
+
+   >**참고**: 명령은 비동기적으로 실행(-AsJob 매개 변수에 의해 결정)되므로 동일한 PowerShell 세션 내에서 즉시 다른 PowerShell 명령을 실행할 수 있지만 리소스 그룹이 실제로 제거되기까지 몇 분 정도 걸릴 수 있습니다.
 
 #### 리뷰
 

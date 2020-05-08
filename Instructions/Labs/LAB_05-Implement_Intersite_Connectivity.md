@@ -19,6 +19,10 @@ Contoso는 보스턴, 뉴욕 및 시애틀 사무소에 광역 네트워크 링�
 + 작업 2: 로컬 및 글로벌 가상 네트워크 피어링 구성
 + 작업 3: 사이트 간 연결 테스트 
 
+## 예상 시간: 30분
+
+### 지침
+
 #### 작업 1: 랩 환경 프로비전
 
 이 작업에서는 세 개의 가상 머신을 각각 별도의 가상 네트워크에 배포하고 그 중 두 개는 동일한 Azure 지역에, 세 번째는 다른 Azure 지역에 배포합니다. 
@@ -195,7 +199,7 @@ Contoso는 보스턴, 뉴욕 및 시애틀 사무소에 광역 네트워크 링�
 1. Windows PowerShell 콘솔 창에서 다음 명령을 실행하여 **az104-05-vm2**에 대한 연결을 테스트합니다(개인 IP 주소가 **10.52.0.4**입니다).
 
    ```pwsh
-   Test-NetConnection -ComputerName 10.51.0.4 -Port 3389 -InformationLevel 'Detailed'
+   Test-NetConnection -ComputerName 10.52.0.4 -Port 3389 -InformationLevel 'Detailed'
    ```
 1. 랩 컴퓨터의 Azure Portal 로 다시 전환하여 **가상 머신** 블레이드로 다시 이동합니다. 
 

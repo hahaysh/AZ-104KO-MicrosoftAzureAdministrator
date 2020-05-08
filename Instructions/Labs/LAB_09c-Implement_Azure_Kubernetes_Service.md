@@ -19,6 +19,8 @@ Contoso에는 Azure Container Instances로 실행하기에 적합하지 않은 �
 + 작업 2: Azure Kubernetes Service 클러스터에 Pod 배포
 + 작업 3: Azure Kubernetes Service 클러스터에서 컨테이너화된 워크로드 확장
 
+## 예상 시간: 40분
+
 ## 지침
 
 ### 연습 1
@@ -39,8 +41,7 @@ Contoso에는 Azure Container Instances로 실행하기에 적합하지 않은 �
     | 리소스 그룹 | 새 리소스 그룹의 이름 **az104-09c-rg1** |
     | Kubernetes 클러스터 이름 | **az104-9c-aks1** |
     | 영역 | Kubernetes 클러스터를 프로비전할 수 있는 지역의 이름 |
-    | Kubernetes 버전 | 기본값을 수락합니다. |
-    | DNS 이름 접두사 | 전역적으로 고유하고 유효한 DNS 호스트 이름 |
+    | Kubernetes 버전 | 기본값을 수락합니다. |    
     | 노드 크기 | 기본값을 수락합니다. |
     | 노드 수 | **1** |
 
@@ -63,7 +64,8 @@ Contoso에는 Azure Container Instances로 실행하기에 적합하지 않은 �
 
     | 설정 | 값 |
     | ---- | ---- |
-    | HTTP 애플리케이션 라우팅 | **아니요** |
+    | DNS 이름 접두사 | 전역적으로 고유하고 유효한 DNS 호스트 이름 |
+	| HTTP 애플리케이션 라우팅 | **아니요** |
     | 부하 분산 장치 | **표준** |
     | 네트워크 구성 | **고급** |
 

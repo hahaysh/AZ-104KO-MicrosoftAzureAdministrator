@@ -21,6 +21,8 @@ Contoso 사용자가 Azure AD를 사용하여 인증할 수 있도록 하기 위
 + 작업 3: Azure Active Directory(AD) 테넌트 만들기
 + 작업 4: Azure AD 게스트 사용자 관리 
 
+## 예상 시간: 30분
+
 ## 지침
 
 ### 연습 1
