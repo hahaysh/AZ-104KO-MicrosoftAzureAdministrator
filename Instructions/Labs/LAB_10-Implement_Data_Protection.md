@@ -439,7 +439,7 @@ Azure Recovery Services를 사용하여 Azure 가상 머신 및 온-프레미스
    Get-AzResourceGroup -Name 'az104-10*' | Remove-AzResourceGroup -Force -AsJob
    ```
 
-   >**참고**: 원하는 경우 접두사 **AzureBackupRG_**가 붙은 자동 생성된 리소스 그룹을 삭제할 수도 있습니다(해당 리소스 그룹과 관련한 추가 비용은 발생하지 않습니다).
+   >**참고**: 원하는 경우 접두사 **AzureBackupRG_** 가 붙은 자동 생성된 리소스 그룹을 삭제할 수도 있습니다(해당 리소스 그룹과 관련한 추가 비용은 발생하지 않습니다).
 
    >**참고**: 명령은 비동기적으로 실행(-AsJob 매개 변수에 의해 결정)되므로 동일한 PowerShell 세션 내에서 즉시 다른 PowerShell 명령을 실행할 수 있지만 리소스 그룹이 실제로 제거되기까지 몇 분 정도 걸릴 수 있습니다.
 
