@@ -293,7 +293,7 @@ Azure 가상 네트워킹 기능을 탐색해야 합니다. 시작을 위해 Azu
 
 1. Azure Portal에서 오른쪽 상단에 있는 아이콘을 클릭하여 **Cloud Shell**에서 **PowerShell** 세션을 엽니다.
 
-1. Cloud Shell 창에서 다음을 실행하여 새로 만든 DNS 영역의 **az104-04-vm0** DNS 레코드 집합의 외부 이름 확인을 테스트합니다(자리 표시자 `[Name server 1]`를 이 작업에서 앞서 확인한 **이름 서버 1**의 이름으로 변경하고 `[domain name]` 자리 표시자를 앞서 만든 DNS 도메인의 이름으로 변경합니다):
+1. Cloud Shell 창에서 다음을 실행하여 새로 만든 DNS 영역 내 **az104-04-vm0** DNS 레코드 집합의 외부 이름 확인을 테스트합니다([] 괄호를 포함하여 자리표시자 `[Name server 1]`를 이 작업에서 앞서 확인한 **Name server 1**의 이름으로 변경합니다. 그리고 `[domain name]`자리표시자를 이 작업에서 앞서 만든 DNS 도메인 이름으로 변경합니다).
 
    ```pwsh
    nslookup az104-04-vm0.[domain name] [Name server 1]

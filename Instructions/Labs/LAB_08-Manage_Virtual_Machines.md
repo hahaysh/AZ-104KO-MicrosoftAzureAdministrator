@@ -315,7 +315,23 @@ lab:
    ```
     > **참고**: 명령 완료가 확인될 때까지 기다립니다.
 
-#### 작업 4: Azure Portal을 사용하여 영역 복원력 있는 Azure Virtual Machine Scale Sets배포
+#### 작업 4: Microsoft.Insights 및 Microsoft.AlertsManagement 리소스 공급자를 등록합니다.
+
+1. Azure Portal 우측 상단의 아이콘을 클릭하여 **Azure Cloud Shell**을 엽니다.
+
+1. **Bash** 또는 **PowerShell** 창이 표시될 경우 **PowerShell**을 선택합니다. 
+
+    >**참고**: **Cloud Shell**을 처음으로 시작할 경우 **탑재된 스토리지가 없음** 메시지가 표시되면 이 랩에서 사용하고 있는 구독을 선택하고 **스토리지 만들기**를 클릭합니다. 
+	
+1. Cloud Shell 창에서 다음을 실행하여 Microsoft.Insights 및 Microsoft.AlertsManagement 리소스 공급자를 등록합니다.
+
+   ```pwsh
+   Register-AzResourceProvider -ProviderNamespace Microsoft.Insights
+   
+   Register-AzResourceProvider -ProviderNamespace Microsoft.AlertsManagement
+   ```
+   
+#### 작업 5: Azure Portal을 사용하여 영역 복원력 있는 Azure Virtual Machine Scale Sets배포
 
 본 작업에서는 Azure Portal을 사용하여 가용성 영역에 Azure 가상 머신 확장 집합을 배포합니다.
 
@@ -416,7 +432,7 @@ lab:
     >**참고**: 가상 머신 확장 집합이 배포될 때까지 기다립니다. 이 작업에 약 5분이 소요됩니다.
 
 
-#### 작업 5: 가상 머신 확장을 사용하여 Azure Virtual Machine Scale Sets 구성
+#### 작업 6: 가상 머신 확장을 사용하여 Azure Virtual Machine Scale Sets 구성
 
 본 작업에서는 사용자 지정 스크립트 가상 머신 확장을 사용하여 이전 작업에서 배포한 Azure 가상 머신 확장 집합의 인스턴스에 Windows Server Web Server 역할을 설치합니다. 
 
@@ -441,7 +457,7 @@ lab:
     >**참고**: 브라우저 페이지에 Azure 가상 머신 확장 집합 **az10408vms0**의 인스턴스 중 하나의 이름이 표시되는지 확인합니다.
 
 
-#### 작업 6: Azure 가상 머신 확장 집합에 대한 컴퓨팅 및 스토리지 확장
+#### 작업 7: Azure 가상 머신 확장 집합에 대한 컴퓨팅 및 스토리지 확장
 
 이 작업에서는 가상 머신 확장 집합 인스턴스의 크기를 변경하고, 자동 크기 조정 설정을 구성하고, 디스크를 연결합니다.
 
@@ -495,8 +511,6 @@ lab:
 
 1. **Bash**또는 **PowerShell** 중 하나를 선택하라는 메시지가 표시되면 **PowerShell**을 선택합니다.      
 
-    >**참고**: **Cloud Shell**을 처음 시작할 때 **탑재된 스토리지가 없음** 메시지가 나타나면 이 랩에서 사용 중인 구독을 선택하고 **스토리지 만들기**를 클릭합니다. 
-
 1. Cloud Shell 창에서 다음을 실행하여 Azure 가상 머신 확장 집합 **az10408vms0**앞에 있는 부하 분산 장치의 공용 IP 주소를 식별합니다.
 
    ```pwsh
@@ -520,7 +534,7 @@ lab:
 
 1. Cloud Shell 창을 닫습니다. 
 
-1. **az10408vms0** 블레이드에서 **스토리지**를 클릭하고 **+데이터 디스크 추가**를 클릭한 후 다음과 같이 설정된 새 관리 디스크를 연결합니다(다른 값은 기본값으로 남겨둡니다).
+1. **az10408vmss0** 블레이드에서 **디스크**와 **+ 데이터 디스크 추가**를 차례로 클릭합니다. 그리고 다음 설정으로 신규 관리 디스크를 첨부합니다(다른 항목은 기본값으로 둡니다).
 
     | 설정 | 값 | 
     | --- | --- |
