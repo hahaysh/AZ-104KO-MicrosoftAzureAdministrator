@@ -1,63 +1,65 @@
----
+﻿---
 lab:
-    title: '03c - Azure PowerShell을 사용해 Azure 리소스 관리'
+    title: '03c - Azure PowerShell을 사용한 Azure 리소스 관리'
     module: '모듈 03 - Azure 관리'
 ---
 
-# 랩 03c - Azure PowerShell을 사용해 Azure 리소스 관리
-
+# 랩 03c - Azure PowerShell을 사용한 Azure 리소스 관리
+# 학생 랩 매뉴얼
 
 ## 랩 시나리오
 
-Azure 포털과 Azure Resource Manager 템플릿을 사용하여 리소스 그룹을 기반으로 리소스를 프로비저닝하고 구성하는 기본 Azure 관리 기능을 탐색했으므로, Azure PowerShell을 사용하여 동등한 작업을 수행합니다. Azure PowerShell 모듈을 설치하지 않으려면 Azure Cloud Shell에서 사용 가능한 PowerShell 환경을 활용하십시오.
+Azure Portal 및 Azure Resource Manager 템플릿을 사용한 리소스 그룹에 기반하여 리소스를 프로비전하고 구성하는 것과 연관된 기본 Azure 관리 기능을 살펴보았으므로 Azure PowerShell을 사용하여 해당 작업을 수행해야 합니다. Azure PowerShell 모듈을 설치하지 않으려면 Azure Cloud Shell에서 사용할 수 있는 PowerShell 환경을 활용해야 합니다.
 
-## 목표
+## 목적
 
-이 과정에서, 우리는 다음과 같은 실습을 합니다 :
+이 랩에서는 다음 작업을 수행합니다.
 
-+ 작업 1: Azure Cloud Shell에서 PowerShell 세션을 시작
-+ 작업 2: Azure PowerShell을 사용하여 리소스 그룹과 Azure 관리 디스크 생성
++ 작업 1: Azure Cloud Shell에서 PowerShell 세션 시작.
++ 작업 2: Azure PowerShell을 사용하여 리소스 그룹 및 Azure 관리 디스크 만들기
 + 작업 3: Azure PowerShell을 사용하여 관리 디스크 구성
 
+## 예상 시간: 20분
 
-## 설명
+## 지침
 
-### 작업 1: Azure Cloud Shell에서 PowerShell 세션을 시작
+### 연습 1
 
-이 작업에서는 Cloud Shell의 PowerShell 세션을 이용합니다.
+#### 작업 1: Azure Cloud Shell에서 PowerShell 세션을 시작합니다.
 
-1. Azure 포털 오른쪽 위의 아이콘을 클릭하여 **Azure Cloud Shell**을 실행한다.
+이 작업에서는 Cloud Shell에서 PowerShell 세션을 엽니다. 
 
-1. **Bash** 또는 **PowerShell**을 선택하는 프롬프트 창에서 **PowerShell**을 선택한다. 
+1. 포털에서 Azure Portal 오른쪽 상단에 있는 아이콘을 클릭하여 **Azure Cloud Shell**을 엽니다.
 
-    >**참고**: **Cloud Shell**을 처음 실행한 경우, **탑재된 스토리지가 없음** 메시지가 표시됩니다. 이 랩에서 사용하고 있는 구독을 선택하고 **스토리지 만들기**를 클릭하십시오. 
+1. **Bash** 또는 **PowerShell** 중 하나를 선택하라는 메시지가 표시되면 **PowerShell**을 선택합니다.      
 
-1. 메시지가 나타나면 **스토리지 만들기**를 클릭하고, Azure Cloud Shell 창이 표시될 때까지 기다린다. 
+    >**참고**: **Cloud Shell**을 처음 시작할 때 **탑재된 스토리지가 없음** 메시지가 나타나면 이 랩에서 사용 중인 구독을 선택하고 **스토리지 만들기**를 클릭합니다. 
 
-1. Cloud Shell 왼쪽 위의 드롭다운 메뉴에 **PowerShell**이 표시되는지 확인한다.
+1. 메시지가 표시되면 **스토리지 만들기**를 클릭하고 Azure Cloud Shell 창이 표시될 때까지 기다립니다. 
 
+1. Cloud Shell 창의 왼쪽 위 모서리에 있는 드롭다운 메뉴에 **PowerShell**이 나타나는지 확인합니다.
 
-### 작업 2: Azure PowerShell을 이용해 리소스 그룹과 Azure 관리 디스크 생성
+#### 작업 2: Azure PowerShell을 사용하여 리소스 그룹 및 Azure 관리 디스크 만들기
 
-이 작업에서는 Cloud Shell 내의 Azure PowerShell 세션을 사용해 리소스 그룹과 Azure 관리 디스크를 생성할 것입니다. 
+이 작업에서는  Cloud Shell 내에 있는 Azure PowerShell 세션을 사용하여 리소스 그룹 및 Azure 관리 디스크를 만듭니다.
 
-1. 이전 랩에서 만들었던 **az104-03b-rg1** 리소스 그룹과 같은 지역에 새 리소스 그룹을 만들기 위해 Cloud Shell의 PowerShell 세션에서 다음 명령어를 실행한다.
+1. Cloud Shell 내의 PowerShell 세션에서 이전 랩에서 만든 **az104-03b-rg1** 리소스 그룹과 동일한 Azure 지역에 리소스 그룹을 만들려면 다음을 실행합니다.
 
-   ```powershell
+   ```pwsh
    $location = (Get-AzResourceGroup -Name az104-03b-rg1).Location
 
    $rgName = 'az104-03c-rg1'
 
    New-AzResourceGroup -Name $rgName -Location $location
    ```
-1. 새로 생성한 리소스 그룹의 속성을 검색하려면 다음 명령을 실행한다.
+1. 새로 만든 리소스 그룹의 속성을 검색하려면 다음 명령을 실행합니다.
 
-   ```powershell
+   ```pwsh
    Get-AzResourceGroup -Name $rgName
    ```
-1. 이 모듈의 지난 랩에서 만들었던 관리 디스크와 같은 속성을 가진 새 디스크를 만들기 위해 다음 명령어를 실행한다.
+1. 본 모듈의 이전 랩에서 만든 것과 동일한 특성을 가진 새 관리 디스크를 만들려면 다음 명령을 실행합니다.
 
-   ```powershell
+   ```pwsh
    $diskConfig = New-AzDiskConfig `
     -Location $location `
     -CreateOption Empty `
@@ -72,51 +74,54 @@ Azure 포털과 Azure Resource Manager 템플릿을 사용하여 리소스 그�
     -Disk $diskConfig
    ```
 
-1. 새로 생성한 디스크의 속성을 검색하려면 다음 명령을 실행한다. 
+1. 새로 만든 디스크의 속성을 검색하려면 다음 명령을 실행합니다.
 
-   ```powershell
+   ```pwsh
    Get-AzDisk -ResourceGroupName $rgName -Name $diskName
    ```
 
+#### 작업 3: Azure PowerShell을 사용하여 관리 디스크 구성
 
-### 작업 3: Azure PowerShell을 사용하여 관리 디스크 구성
+본 작업에서는 Cloud Shell 내에서 Azure PowerShell 세션을 사용하여 Azure 관리 디스크의 구성을 관리합니다. 
 
-이 작업에서는 Cloud Shell 내의 Azure PowerShell 세션을 사용해 Azure 관리 디스크의 구성을 관리할 것입니다. 
+1. Cloud Shell 내의 PowerShell 세션에서 Azure 관리 디스크의 크기를 **64 GB**로 늘리려면 다음 명령을 실행합니다.
 
-1. Azure 관리 디스크의 크기를 **64GB**로 늘리기 위해 Cloud Shell의 PowerShell 세션에서 다음 명령어를 실행한다.
-
-   ```powershell
+   ```pwsh
    New-AzDiskUpdateConfig -DiskSizeGB 64 | Update-AzDisk -ResourceGroupName $rgName -DiskName $diskName
    ```
 
-1. 변경 사항이 적용되었는지 확인하려면 다음을 실행한다.
+1. 변경이 적용되었는지 확인하려면 다음 명령을 실행합니다.
 
-   ```powershell
+   ```pwsh
    Get-AzDisk -ResourceGroupName $rgName -Name $diskName
    ```
 
-1. 디스크 성능 SKU를 **Premium_LRS**로 변경하려면, Cloud Shell의 PowerShell 세션에서 다음 명령어를 실행한다.
+1. 현재 SKU를 **Standard_LRS**로 확인하려면 다음을 실행합니다.
 
-   ```powershell
-   New-AzDiskUpdateConfig -Sku Premium_LRS | Update-AzDisk -ResourceGroupName $rgName -DiskName $diskName
-   ```
-
-1. 변경 사항이 적용되었는지 확인하려면 다음을 실행한다.
-
-   ```powershell
+   ```pwsh
    (Get-AzDisk -ResourceGroupName $rgName -Name $diskName).Sku
    ```
 
+1. Cloud Shell 내의 PowerShell 세션에서 디스크 성능 SKU를 **Premium_LRS** 로 변경하려면 다음 명령을 실행합니다.
 
-### 리소스 삭제
+   ```pwsh
+   New-AzDiskUpdateConfig -Sku Premium_LRS | Update-AzDisk -ResourceGroupName $rgName -DiskName $diskName
+   ```
 
-   >**참고**: 이 랩에서 배포한 리소스를 삭제하지 마십시오. 이 모듈의 다음 랩에서 참조할 것입니다.
+1. 변경이 적용되었는지 확인하려면 다음 명령을 실행합니다.
 
+   ```pwsh
+   (Get-AzDisk -ResourceGroupName $rgName -Name $diskName).Sku
+   ```
 
-### 요약
+#### 리소스 정리
 
-이 랩에서 우리는
+   >**참고**: 이 랩에 배포된 리소스는 삭제하지 마세요. 이 모듈의 다음 랩에서 참조해야 합니다.
+
+#### 리뷰
+
+이 랩에서는 다음 작업을 했습니다.
 
 - Azure Cloud Shell에서 PowerShell 세션을 시작했습니다.
-- Azure PowerShell을 이용해 리소스 그룹과 Azure 관리 디스크를 생성했습니다. 
-- Azure PowerShell을 이용해 관리 디스크를 구성했습니다. 
+- Azure PowerShell을 사용하여 리소스 그룹 및 Azure 관리 디스크를 만들었습니다.
+- Azure PowerShell을 사용하여 관리 디스크를 구성했습니다.
